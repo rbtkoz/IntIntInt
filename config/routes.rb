@@ -1,7 +1,7 @@
 YApp::Application.routes.draw do
   resources :plots
 
-
+  require 'resque/server'
 
   resources :users, :user_sessions
    match 'login' => 'user_sessions#new', :as => :login
@@ -32,6 +32,8 @@ YApp::Application.routes.draw do
   
 #  root :to => 'videos#index'
   root :to => "phrases#edit", :as => :homepage
+  
+  mount Resque::Server.new,:at => '/resque'
 
  
 

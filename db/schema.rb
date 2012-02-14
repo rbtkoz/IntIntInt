@@ -38,14 +38,6 @@ ActiveRecord::Schema.define(:version => 20120118000502) do
     t.datetime "updated_at"
   end
 
-  create_table "discards", :force => true do |t|
-    t.string   "youtubeid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "discards", ["youtubeid"], :name => "index_discards_on_youtubeid"
-
   create_table "keywords", :force => true do |t|
     t.string   "content"
     t.integer  "video_id"
@@ -68,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20120118000502) do
     t.string   "youtubeid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "rating"
   end
 
   create_table "opinions", :force => true do |t|
@@ -124,7 +115,6 @@ ActiveRecord::Schema.define(:version => 20120118000502) do
     t.text     "comments"
     t.text     "keywords",   :limit => 255
     t.string   "views"
-    t.boolean  "download"
     t.string   "rating"
   end
 
